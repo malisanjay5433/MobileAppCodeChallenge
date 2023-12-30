@@ -8,12 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    private let viewModel = SearchImageViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        viewModel.userDelegate = self
+        viewModel.fetchImages(userQuery: "dogs")
     }
-
-
 }
 
+extension ViewController : SearchImageViewModelProtocol{
+    func reloadData() {
+        print("featch images")
+    }
+}

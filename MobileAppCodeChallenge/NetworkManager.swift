@@ -19,7 +19,7 @@ struct ImgurAPI {
 
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue("Client-ID \(Constants.clientID)", forHTTPHeaderField: "Authorization")
+        request.addValue("Client-ID \(AppConstants.clientID)", forHTTPHeaderField: "Authorization")
 
         do {
             let (data, _) = try await URLSession.shared.data(for: request)

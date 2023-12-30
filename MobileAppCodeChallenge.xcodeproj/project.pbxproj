@@ -16,6 +16,11 @@
 		9BF265C52B3FF9A300B306DF /* MobileAppCodeChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF265C42B3FF9A300B306DF /* MobileAppCodeChallengeTests.swift */; };
 		9BF265CF2B3FF9A300B306DF /* MobileAppCodeChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF265CE2B3FF9A300B306DF /* MobileAppCodeChallengeUITests.swift */; };
 		9BF265D12B3FF9A300B306DF /* MobileAppCodeChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF265D02B3FF9A300B306DF /* MobileAppCodeChallengeUITestsLaunchTests.swift */; };
+		9BF265E82B40083400B306DF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF265E72B40083400B306DF /* NetworkManager.swift */; };
+		9BF265EA2B4008CD00B306DF /* GalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF265E92B4008CD00B306DF /* GalleryModel.swift */; };
+		9BF265EC2B401F6B00B306DF /* SearchImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF265EB2B401F6B00B306DF /* SearchImageViewModel.swift */; };
+		9BF265EE2B403C7900B306DF /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF265ED2B403C7900B306DF /* API.swift */; };
+		9BF265F02B40478C00B306DF /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF265EF2B40478C00B306DF /* AppConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		9BF265CA2B3FF9A300B306DF /* MobileAppCodeChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileAppCodeChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BF265CE2B3FF9A300B306DF /* MobileAppCodeChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAppCodeChallengeUITests.swift; sourceTree = "<group>"; };
 		9BF265D02B3FF9A300B306DF /* MobileAppCodeChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAppCodeChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9BF265E72B40083400B306DF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = MobileAppCodeChallenge/NetworkManager.swift; sourceTree = SOURCE_ROOT; };
+		9BF265E92B4008CD00B306DF /* GalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GalleryModel.swift; path = MobileAppCodeChallenge/GalleryModel.swift; sourceTree = SOURCE_ROOT; };
+		9BF265EB2B401F6B00B306DF /* SearchImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageViewModel.swift; sourceTree = "<group>"; };
+		9BF265ED2B403C7900B306DF /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		9BF265EF2B40478C00B306DF /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +110,13 @@
 			isa = PBXGroup;
 			children = (
 				9BF265AD2B3FF9A100B306DF /* AppDelegate.swift */,
+				9BF265E72B40083400B306DF /* NetworkManager.swift */,
+				9BF265ED2B403C7900B306DF /* API.swift */,
+				9BF265EF2B40478C00B306DF /* AppConstants.swift */,
+				9BF265E92B4008CD00B306DF /* GalleryModel.swift */,
 				9BF265AF2B3FF9A100B306DF /* SceneDelegate.swift */,
 				9BF265B12B3FF9A100B306DF /* ViewController.swift */,
+				9BF265EB2B401F6B00B306DF /* SearchImageViewModel.swift */,
 				9BF265B32B3FF9A100B306DF /* Main.storyboard */,
 				9BF265B62B3FF9A300B306DF /* Assets.xcassets */,
 				9BF265B82B3FF9A300B306DF /* LaunchScreen.storyboard */,
@@ -258,7 +273,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BF265EC2B401F6B00B306DF /* SearchImageViewModel.swift in Sources */,
+				9BF265E82B40083400B306DF /* NetworkManager.swift in Sources */,
+				9BF265EA2B4008CD00B306DF /* GalleryModel.swift in Sources */,
 				9BF265B22B3FF9A100B306DF /* ViewController.swift in Sources */,
+				9BF265EE2B403C7900B306DF /* API.swift in Sources */,
+				9BF265F02B40478C00B306DF /* AppConstants.swift in Sources */,
 				9BF265AE2B3FF9A100B306DF /* AppDelegate.swift in Sources */,
 				9BF265B02B3FF9A100B306DF /* SceneDelegate.swift in Sources */,
 			);

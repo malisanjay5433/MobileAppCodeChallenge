@@ -10,7 +10,7 @@ protocol SearchImageViewModelProtocol: AnyObject {
     func reloadData() // Data Binding - PROTOCOL (View and ViewModel Communication)
 }
 class SearchImageViewModel{
-    var images: Gallery? {
+    var images: GalleryModel? {
         didSet {
             self.userDelegate?.reloadData()
         }
@@ -21,7 +21,7 @@ class SearchImageViewModel{
     func fetchImages(userQuery: String){
         Task{
             do {
-                let imageData:Gallery = try await ImgurAPI.searchImages(query: userQuery, sort: "viral", window: "week", page: 1)
+                let imageData:GalleryModel = try await ImgurAPI.searchImages(query: userQuery, sort: "viral", window: "week", page: 1)
                 print("JSON : \(imageData)")
                 self.images = imageData
             } catch {
