@@ -10,22 +10,28 @@ protocol SearchImageViewModelProtocol: AnyObject {
     func reloadData() // Data Binding - PROTOCOL (View and ViewModel Communication)
 }
 class SearchImageViewModel{
-    var images: GalleryModel? {
+    
+    weak var userDelegate: SearchImageViewModelProtocol?
+    
+    var gallery: GalleryModel? {
         didSet {
             self.userDelegate?.reloadData()
         }
     }
-    weak var userDelegate: SearchImageViewModelProtocol?
     
     @MainActor
-    func fetchImages(userQuery: String){
+    func fetchImages(userQuery: String) {
         Task{
             do {
-                let imageData:GalleryModel = try await ImgurAPI.searchImages(query: userQuery, sort: "viral", window: "week", page: 1)
-                print("JSON : \(imageData)")
-                self.images = imageData
+                let galleryData:GalleryModel = try await ImgurAPI.searchTopImageOfWeek(query: userQuery, sort: "time", window: "week")
+                
+                guard galleryData.status == 200 else {
+                    print("Error: Unexpected HTTP status code \(String(describing: galleryData.status))")
+                    return
+                }
+                self.gallery = galleryData
             } catch {
-                print("Error: \(error.localizedDescription)")
+                print("Error fetching images: \(error.localizedDescription)")
             }
         }
     }
