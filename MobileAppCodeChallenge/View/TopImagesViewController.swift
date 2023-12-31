@@ -16,6 +16,7 @@ class TopImagesViewController: UIViewController {
     private var debouncer: Debouncer?
     var toggleButton: UIBarButtonItem!
     var isGridMode: Bool = false
+    private var emptyStateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,22 @@ class TopImagesViewController: UIViewController {
         setupSearchBar()
         configureCollectionView()
         setupDebouncer()
+        setupEmptyStateLabel()
+        updateEmptyState()
+    }
+    private func setupEmptyStateLabel() {
+        emptyStateLabel = UILabel()
+        emptyStateLabel.text = "No search results found..."
+        emptyStateLabel.textAlignment = .center
+        emptyStateLabel.isHidden = true
+        view.addSubview(emptyStateLabel)
+        
+        // Add constraints to center the label in the view
+        emptyStateLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emptyStateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyStateLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     private func setupViewModel() {
@@ -56,6 +73,10 @@ class TopImagesViewController: UIViewController {
 extension TopImagesViewController: SearchImageViewModelProtocol {
     func reloadData() {
         collectionView.reloadData()
+        updateEmptyState()
+    }
+    private func updateEmptyState() {
+        emptyStateLabel.isHidden = !(viewModel.gallery?.data?.isEmpty ?? true)
     }
 }
 extension TopImagesViewController : UISearchBarDelegate{
@@ -64,7 +85,7 @@ extension TopImagesViewController : UISearchBarDelegate{
     }
 }
 
-extension TopImagesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {    
+extension TopImagesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @objc func toggleViewMode() {
         isGridMode = !isGridMode
         updateViewMode()
