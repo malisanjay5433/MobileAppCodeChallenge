@@ -6,13 +6,14 @@
 //
 
 import Foundation
+
 protocol SearchImageViewModelProtocol: AnyObject {
-    func reloadData() // Data Binding - PROTOCOL (View and ViewModel Communication)
+    func reloadData()
 }
-class SearchImageViewModel{
+
+final class SearchImageViewModel {
     
     weak var userDelegate: SearchImageViewModelProtocol?
-    
     
     var gallery: GalleryModel? {
         didSet {
@@ -22,19 +23,26 @@ class SearchImageViewModel{
     
     @MainActor
     func fetchImages(userQuery: String) {
-        Task{
+        Task {
             do {
-                let galleryData:GalleryModel = try await ImgurAPI.searchTopImageOfWeek(query: userQuery, sort: "time", window: "week")
-                
-                guard galleryData.status == 200 else {
-                    print("Error: Unexpected HTTP status code \(String(describing: galleryData.status))")
-                    return
-                }
-                self.gallery = galleryData
+                let galleryData: GalleryModel = try await ImgurAPI.searchTopImageOfWeek(query: userQuery, sort: "time", window: "week")
+                handleGalleryResponse(galleryData)
+                print(galleryData.data ?? "")
             } catch {
-                print("Error fetching images: \(error.localizedDescription)")
+                handleError(error)
             }
         }
     }
     
+    private func handleGalleryResponse(_ galleryData: GalleryModel) {
+        guard galleryData.status == 200 else {
+            print("Error: Unexpected HTTP status code \(galleryData.status ?? -1)")
+            return
+        }
+        self.gallery = galleryData
+    }
+    
+    private func handleError(_ error: Error) {
+        print("Error fetching images: \(error.localizedDescription)")
+    }
 }
