@@ -8,21 +8,33 @@
 import UIKit
 
 class TopImagesViewController: UIViewController {
-    private let viewModel = SearchImageViewModel()
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    private var viewModel: SearchImageViewModel!
+    private var debouncer: Debouncer?
+    
     var gallery: GalleryModel?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel = SearchImageViewModel()
+        self.viewModel.userDelegate = self
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        viewModel.userDelegate = self
-        viewModel.fetchImages(userQuery: "dogs")
+        self.searchBar.delegate = self
+        
         self.tableView.register(UINib(nibName: "ImgurGalleryTableViewCell", bundle: nil), forCellReuseIdentifier: "ListCell")
+        // Initialize debouncer only once
+        debouncer = Debouncer(delay: 0.5) { [weak self] in
+            guard let query = self?.searchBar.text?.lowercased() else { return }
+            self?.viewModel.fetchImages(userQuery: query)
+        }
     }
 }
 
 extension TopImagesViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("ViewMODEL COUNT : \(viewModel.gallery?.data?.count ?? 0)")
         return viewModel.gallery?.data?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,3 +53,10 @@ extension TopImagesViewController : SearchImageViewModelProtocol{
         self.tableView.reloadData()
     }
 }
+
+extension TopImagesViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        debouncer?.call()
+    }
+}
+
