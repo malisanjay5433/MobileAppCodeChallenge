@@ -6,11 +6,15 @@
 //
 
 import Foundation
+
+/// Represents the model for the Imgur gallery response.
 struct GalleryModel: Codable {
     let data: [ImgurGallery]?
     let success: Bool?
     let status: Int?
 }
+
+/// Represents a single item in the Imgur gallery.
 struct ImgurGallery: Codable{
     let id, title: String?
     let images_count: Int?
@@ -18,6 +22,9 @@ struct ImgurGallery: Codable{
     let datetime: Int?
     
 }
+
+/// Represents an image in the Imgur gallery.
+
 struct Image : Codable{
     let id: String
     let title: String?
