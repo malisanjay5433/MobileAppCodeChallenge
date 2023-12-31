@@ -53,7 +53,8 @@ The app follows the MVVM (Model-View-ViewModel) architecture for a clean and sca
 The toggle feature between list and grid views is implemented to enhance user experience. The design choice allows users to switch between these views seamlessly.
 
 ## Notes
-[Include any additional notes or considerations that you want to highlight.]
+- The Imgur API key is required for authorization. Make sure to replace `AppConstants.clientID` with your actual Imgur API key.
+- The application is designed to handle both list and grid display modes for a better user experience.
 
 ## Author
 [Sanjay Mali](malisanjay5433)
