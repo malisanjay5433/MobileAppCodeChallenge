@@ -1,8 +1,8 @@
 //
-//  ImgurGalleryTableViewCell.swift
-//  MobileAppCodeChallenge
+//  TestCollectionViewCell.swift
+//  Test
 //
-//  Created by Sanjay Mali on 30/12/23.
+//  Created by Sanjay Mali on 31/12/23.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ class DefaultImgurImageFormatter: ImgurImageFormatter {
     }
 }
 
-class ImgurGalleryTableViewCell: UITableViewCell {
+class TestCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imgurImageView: UIImageView!
     @IBOutlet weak var imageCountLbl: UILabel!
@@ -28,18 +28,10 @@ class ImgurGalleryTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLbl: UILabel!
     private var imgurImageFormatter: ImgurImageFormatter!
     private let formatter: ImgurImageFormatter = DefaultImgurImageFormatter()
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
     var imgurGalleryData: ImgurGallery? {
         didSet {
             guard let imgurGalleryData = imgurGalleryData else {return}
@@ -47,7 +39,7 @@ class ImgurGalleryTableViewCell: UITableViewCell {
             
             guard let datetime = imgurGalleryData.datetime  else { return }
             self.dateLbl.text = formatter.format(date: datetime)
-           
+            
             guard let imagesCount = imgurGalleryData.images_count else {return}
             self.imageCountLbl.text = "\(imagesCount)"
         }
@@ -71,4 +63,3 @@ class ImgurGalleryTableViewCell: UITableViewCell {
         imgurImageView.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "placeholder"))
     }
 }
-
