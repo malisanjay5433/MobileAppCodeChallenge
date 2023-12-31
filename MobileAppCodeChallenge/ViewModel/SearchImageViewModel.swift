@@ -13,6 +13,7 @@ class SearchImageViewModel{
     
     weak var userDelegate: SearchImageViewModelProtocol?
     
+    
     var gallery: GalleryModel? {
         didSet {
             self.userDelegate?.reloadData()
@@ -35,4 +36,5 @@ class SearchImageViewModel{
             }
         }
     }
+    
 }

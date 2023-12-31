@@ -27,6 +27,7 @@
 		9BF265FB2B404E5300B306DF /* ImgurGalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF265F92B404E5300B306DF /* ImgurGalleryTableViewCell.swift */; };
 		9BF265FC2B404E5300B306DF /* ImgurGalleryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BF265FA2B404E5300B306DF /* ImgurGalleryTableViewCell.xib */; };
 		9BF550222B416748001E3DD3 /* ViewRadiusCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF550212B416748001E3DD3 /* ViewRadiusCorner.swift */; };
+		9BF550262B419655001E3DD3 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF550252B419655001E3DD3 /* Debouncer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		9BF265F92B404E5300B306DF /* ImgurGalleryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgurGalleryTableViewCell.swift; sourceTree = "<group>"; };
 		9BF265FA2B404E5300B306DF /* ImgurGalleryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImgurGalleryTableViewCell.xib; sourceTree = "<group>"; };
 		9BF550212B416748001E3DD3 /* ViewRadiusCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRadiusCorner.swift; sourceTree = "<group>"; };
+		9BF550252B419655001E3DD3 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		B5077939438B3D075C267A7D /* Pods_MobileAppCodeChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileAppCodeChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80A99225B1EA67527F88393 /* Pods_MobileAppCodeChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileAppCodeChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C68E597B6A62B2FBD27EFD /* Pods-MobileAppCodeChallenge-MobileAppCodeChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAppCodeChallenge-MobileAppCodeChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-MobileAppCodeChallenge-MobileAppCodeChallengeUITests/Pods-MobileAppCodeChallenge-MobileAppCodeChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,7 +154,6 @@
 				9BF265F22B404C0200B306DF /* Services */,
 				9BF265F12B404BEA00B306DF /* Constant */,
 				9BF265F62B404C6300B306DF /* Common */,
-				9BF265B32B3FF9A100B306DF /* Main.storyboard */,
 				9BF265B62B3FF9A300B306DF /* Assets.xcassets */,
 				9BF265B82B3FF9A300B306DF /* LaunchScreen.storyboard */,
 				9BF265BB2B3FF9A300B306DF /* Info.plist */,
@@ -222,6 +223,7 @@
 		9BF265F82B404C7C00B306DF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9BF265B32B3FF9A100B306DF /* Main.storyboard */,
 				9BF265B12B3FF9A100B306DF /* TopImagesViewController.swift */,
 				9BF265F92B404E5300B306DF /* ImgurGalleryTableViewCell.swift */,
 				9BF265FA2B404E5300B306DF /* ImgurGalleryTableViewCell.xib */,
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				9BF550212B416748001E3DD3 /* ViewRadiusCorner.swift */,
+				9BF550252B419655001E3DD3 /* Debouncer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				9BF265F02B40478C00B306DF /* AppConstants.swift in Sources */,
 				9BF265AE2B3FF9A100B306DF /* AppDelegate.swift in Sources */,
 				9BF550222B416748001E3DD3 /* ViewRadiusCorner.swift in Sources */,
+				9BF550262B419655001E3DD3 /* Debouncer.swift in Sources */,
 				9BF265B02B3FF9A100B306DF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
