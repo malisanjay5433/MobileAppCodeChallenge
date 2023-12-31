@@ -20,7 +20,7 @@ class DefaultImgurImageFormatter: ImgurImageFormatter {
     }
 }
 
-class TestCollectionViewCell: UICollectionViewCell {
+class ImgurCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imgurImageView: UIImageView!
     @IBOutlet weak var imageCountLbl: UILabel!
@@ -59,7 +59,6 @@ class TestCollectionViewCell: UICollectionViewCell {
     }
     
     private func loadImageFromURL(_ urlString: String) {
-        print("URL STRING : \(urlString)")
         imgurImageView.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "placeholder"))
     }
 }
