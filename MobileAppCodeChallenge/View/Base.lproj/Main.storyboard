@@ -17,14 +17,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QlK-AK-9bv">
-                                <rect key="frame" x="0.0" y="155" width="393" height="663"/>
+                                <rect key="frame" x="0.0" y="211" width="393" height="607"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" placeholder="Search here.." translatesAutoresizingMaskIntoConstraints="NO" id="5h1-jh-Dry">
+                                <rect key="frame" x="0.0" y="155" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hBt-XT-zc2"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QlK-AK-9bv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="470-9O-OqJ"/>
+                            <constraint firstItem="5h1-jh-Dry" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0Jr-BX-kTK"/>
+                            <constraint firstItem="QlK-AK-9bv" firstAttribute="top" secondItem="5h1-jh-Dry" secondAttribute="bottom" id="4iy-rF-wAY"/>
+                            <constraint firstItem="5h1-jh-Dry" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="83Q-E3-Nhc"/>
+                            <constraint firstItem="5h1-jh-Dry" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DBl-Vf-j3y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QlK-AK-9bv" secondAttribute="bottom" id="IQ9-Vi-EVk"/>
                             <constraint firstItem="QlK-AK-9bv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UGj-F0-sLL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QlK-AK-9bv" secondAttribute="trailing" id="wFR-ES-YfC"/>
@@ -32,6 +42,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="TOP IMAGES OF WEEK" id="a7g-1f-vwT"/>
                     <connections>
+                        <outlet property="searchBar" destination="5h1-jh-Dry" id="51d-EN-1jY"/>
                         <outlet property="tableView" destination="QlK-AK-9bv" id="jeF-gQ-vRE"/>
                     </connections>
                 </viewController>
