@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_MobileAppCodeChallenge_MobileAppCodeChallengeUITests : NSObject
+@end
+@implementation PodsDummy_Pods_MobileAppCodeChallenge_MobileAppCodeChallengeUITests
+@end
