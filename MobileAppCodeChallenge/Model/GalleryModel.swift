@@ -13,8 +13,10 @@ struct GalleryModel: Codable {
 }
 struct ImgurGallery: Codable{
     let id, title: String?
-    let imagesCount: Int?
+    let images_count: Int?
     let images: [Image]
+    let datetime: Int?
+    
 }
 struct Image : Codable{
     let id: String
@@ -22,4 +24,5 @@ struct Image : Codable{
     let description: String?
     let datetime: Int
     let link: String
+    let type: String
 }
