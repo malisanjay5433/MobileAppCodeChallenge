@@ -32,7 +32,7 @@ final class SearchImageViewModel {
         Task {
             do {
                 // Attempt to fetch gallery data asynchronously.
-                let galleryData: GalleryModel = try await ImgurAPI.searchTopImageOfWeek(query: userQuery, sort: "time", window: "week")
+                let galleryData: GalleryModel = try await NetworkManager.request(query: userQuery, sort: "time", window: "week")
                 // Handle the response from the Imgur API.
                 handleGalleryResponse(galleryData)
                 print(galleryData.data ?? "")

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct ImgurAPI {
+struct NetworkManager {
     
     // Shared URLSession and JSONDecoder for reuse
     private static let urlSession = URLSession.shared
@@ -20,12 +20,12 @@ struct ImgurAPI {
     ///   - jsonDecoder: The JSONDecoder to use for decoding the response. Defaults to shared JSONDecoder.
     /// - Returns: A generic type conforming to Decodable representing the search result.
     /// - Throws: An ImgurAPIError in case of invalid URL or a failed network request.
-    static func searchTopImageOfWeek<T: Decodable>(
+    static func request<T: Decodable>(
         query: String,
         sort: String,
         window: String,
-        urlSession: URLSession = ImgurAPI.urlSession,
-        jsonDecoder: JSONDecoder = ImgurAPI.jsonDecoder
+        urlSession: URLSession = NetworkManager.urlSession,
+        jsonDecoder: JSONDecoder = NetworkManager.jsonDecoder
     ) async throws -> T {
         var urlComponents = URLComponents(string: API.baseURL + "\(sort)/\(window)")!
         urlComponents.queryItems = [
