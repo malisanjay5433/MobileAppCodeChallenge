@@ -65,9 +65,14 @@ class TopImagesViewController: UIViewController {
     
     private func setupDebouncer() {
         debouncer = Debouncer(delay: 0.5) { [weak self] in
-            self?.viewModel.fetchImages(userQuery: self?.searchBar.text ?? "")
+            guard let searchText = self?.searchBar.text?.lowercased(), !searchText.isEmpty, searchText.count > 3 else {
+                return
+            }
+            self?.viewModel.fetchImages(userQuery: searchText)
         }
     }
+    
+    
 }
 
 extension TopImagesViewController: SearchImageViewModelProtocol {

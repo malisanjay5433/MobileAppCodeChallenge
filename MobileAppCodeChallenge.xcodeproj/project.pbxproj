@@ -122,6 +122,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9BD7587D2B42961D007D9B76 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9BF550212B416748001E3DD3 /* ViewRadiusCorner.swift */,
+				9BF550252B419655001E3DD3 /* Debouncer.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		9BF265A12B3FF9A100B306DF = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +165,7 @@
 				9BF265F62B404C6300B306DF /* Common */,
 				9BF265B62B3FF9A300B306DF /* Assets.xcassets */,
 				9BF265B82B3FF9A300B306DF /* LaunchScreen.storyboard */,
+				9BF265B32B3FF9A100B306DF /* Main.storyboard */,
 				9BF265BB2B3FF9A300B306DF /* Info.plist */,
 			);
 			path = MobileAppCodeChallenge;
@@ -223,7 +233,6 @@
 		9BF265F82B404C7C00B306DF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9BF265B32B3FF9A100B306DF /* Main.storyboard */,
 				9BF5502C2B41BD6E001E3DD3 /* ImgurCollectionViewCell.swift */,
 				9BF5502B2B41BD6E001E3DD3 /* ImgurCollectionViewCell.xib */,
 				9BF265B12B3FF9A100B306DF /* TopImagesViewController.swift */,
@@ -234,8 +243,7 @@
 		9BF265FD2B40525F00B306DF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				9BF550212B416748001E3DD3 /* ViewRadiusCorner.swift */,
-				9BF550252B419655001E3DD3 /* Debouncer.swift */,
+				9BD7587D2B42961D007D9B76 /* Helper */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

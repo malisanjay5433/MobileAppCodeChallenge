@@ -56,6 +56,10 @@ final class SearchImageViewModel {
     
     // Handles errors that may occur during the fetch operation.
     private func handleError(_ error: Error) {
-        print("Error fetching images: \(error.localizedDescription)")
+        if let imgurError = error as? ImgurAPIError {
+            print("Imgur API Error: \(imgurError.localizedDescription), Code: \(error)")
+        } else {
+            print("Unexpected error: \(error.localizedDescription)")
+        }
     }
 }

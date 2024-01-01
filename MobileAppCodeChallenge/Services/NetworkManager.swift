@@ -27,11 +27,13 @@ struct NetworkManager {
         urlSession: URLSession = NetworkManager.urlSession,
         jsonDecoder: JSONDecoder = NetworkManager.jsonDecoder
     ) async throws -> T {
-        var urlComponents = URLComponents(string: API.baseURL + "\(sort)/\(window)")!
+        var urlComponents = URLComponents(string: API.baseURL )!
         urlComponents.queryItems = [
-            URLQueryItem(name: "q", value: query)
+            URLQueryItem(name: "q", value: query),
+            URLQueryItem(name: "sort", value: sort),
+            URLQueryItem(name: "window", value: window)
         ]
-        
+        print("URL : \(urlComponents)")
         guard let url = urlComponents.url else {
             throw ImgurAPIError.invalidURL
         }
