@@ -21,20 +21,22 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcuserstate
-
-## Obj-C/Swift specific
+*.DS_Store Obj-C/Swift specific
 *.hmap
 *.ipa
 *.dSYM.zip
 *.dSYM
-
+*.DS_Store
 # CocoaPods
 #
 # We recommend against adding the Pods directory to your .gitignore. However
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# Pods/
+
+Podfile.lock
+Pods
+*.xcworkspace
+
 
 # Carthage
 #
@@ -54,7 +56,4 @@ fastlane/screenshots
 
 # Code Signing
 #
-# If you wish to share your code signing files, it is recommended to add them to gitignore
-#
-# *.cert
-# *.mobileprovision
+# If you wish to share you
